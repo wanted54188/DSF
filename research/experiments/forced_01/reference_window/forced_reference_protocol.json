@@ -1,0 +1,41 @@
+{
+  "case": "Forced-01",
+  "protocol_id": "short_forecast_16_20",
+  "window": {"start": 16, "end": 20},
+  "flow_seed": 120240401,
+  "length": 6.283185307179586,
+  "nu": 0.00005,
+  "alpha": 0.1,
+  "beta": 0.0,
+  "reynolds": {"nominal": 20000, "velocity_scale": 1.0, "length_scale": 1.0},
+  "F0": 0.125,
+  "forcing_mode": 4,
+  "forcing_velocity_direction": "x",
+  "forcing_variation_direction": "y",
+  "initial": {"initial_RMS": 4.0, "initial_peak_mode": 8, "initial_max_mode": 12},
+  "les": {
+    "n": 100, "delta": 0.25132741228718347, "dt": 0.005,
+    "anchor_spacing": 0.005, "refresh_period": 0.025, "sample_dt": 0.05,
+    "forecast_duration": 1.0, "duration": 4.0, "statistics_skip": 0.0,
+    "seeds": [2026, 2028], "methods": ["Clark4", "Aug", "Fresh-C4", "Parameter-PC", "Parameter-Hold"]
+  },
+  "dns": {
+    "space": {"n": 512, "dt": 0.000625},
+    "primary": {"n": 1024, "dt": 0.000625},
+    "time": {"n": 1024, "dt": 0.0003125}
+  },
+  "screen": {
+    "block_duration": 2,
+    "min_turnovers": 5, "max_half_mean_drift": 0.15,
+    "min_off_axis_Z_fraction": 0.05, "min_Z_cv": 0.01, "max_K_budget_imbalance": 0.20
+  },
+  "gates": {
+    "max_CFL": 0.5, "max_native_Z_tail": 0.0001, "max_native_dissipation_tail": 0.0001,
+    "max_source_identity_relative": 1e-10, "max_budget_defect_relative": 1e-5,
+    "legacy_field_relative": 0.01, "max_stat_relative": 0.03, "normalization_floor": 1e-12
+  },
+  "checkpoints": {
+    "2026": "8dbd2c93b948dcfc5fc1eaa20738dd2e0c16551e740679679ae5e4b3fb353fca",
+    "2028": "c3f5af938ca388e3d894548e78bb71be202a05b76e8c879da611cbdf544e661b"
+  }
+}

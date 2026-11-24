@@ -1,0 +1,23 @@
+{
+  "version": "all_four_NS_references_v4_20261025",
+  "roles": {"development": [110240101, 110240102], "validation_locked": [110240201, 110240202]},
+  "reserved_never_access": [110240301, 110240302],
+  "grid_ladder": [1024, 1536, 2048],
+  "initial_candidate_n": 1536,
+  "dt_main": 0.00025,
+  "dt_half": 0.000125,
+  "sampling": "min(frozen main_LES_dt, fine_LES_dt)/2; covers all actual RK4 stage times",
+  "native_record_interval_s": 0.005,
+  "quality": {"relative_time_space": 0.01, "CFL": 0.5, "tail_fraction": 0.0001, "source_flux_identity": 1e-10, "mean_relative": 1e-10, "normalization_floor": 1e-12},
+  "replay_endpoint_relative_limit": 1e-10,
+  "resource_seconds": {"1024": 1800, "1536": 1800, "2048": 3600},
+  "minimum_free_disk_GB": 20,
+  "quality_policy": "Both candidate time steps must satisfy unchanged raw-tail/CFL/operator gates. Compare all dense records in low/high/all bands for omega, source, dot. Both global and peak-frame relative differences <=1%.",
+  "refinement_policy": "Start development at 1536. On numerical quality failure only, advance once to 2048, using previous candidate main as spatial control. Freeze validation starting grid at max qualified development grid. The same predeclared numerical fallback applies to validation; no physical/model parameter or threshold selection from validation.",
+  "source_definition": "S_eff = F R_h(w) - R_L(Fw), independently computed as -P_L div(F(u*w) - (Fu)*(Fw)); F=P_L T Gaussian",
+  "legacy_source": "Original PoF snapshot routine after raw spectral crop, separately saved",
+  "existing_seed_110240101": "Reuse 1024-main and 1536-main/half native archives; regenerate only the 0.2 s window at dense output cadence, checking all 41 saved native endpoints",
+  "new_cases": "Cold integration from the same prescribed common-mode initial condition; dense low-grid output and native fields every 0.005 s",
+  "scope": "Reference data only. No closure model inference, closure rollout, network training, STAR restricted arrays or reserved final-test access. Locked data used only for fixed numerical reference qualification and future locked evaluation.",
+  "success": "All four cases qualified and exported with verified hashes, role manifest, spectra, budgets and exact stored RK-stage reference access; mechanism remains NOT RUN"
+}

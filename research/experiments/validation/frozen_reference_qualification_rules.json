@@ -1,0 +1,7 @@
+{
+  "date_local": "2026-11-18T19:08:09.969430",
+  "rules_sha256": "498902dd792f82aeb3553f6feecb2669109dfc88e13a04bc01f7115f8104f055",
+  "qualification_code_sha256": "d262fcb662fa4a43cbc396e037b4b3c4c17b8b4c1ed506e1abae5061d46a57d8",
+  "campaign_freeze_sha256": "ad3192e408686574d1ac2f9e903015d7055ff1eebdff50062f8df86a6e48b959",
+  "scope": "Frozen before any3072 trajectory; thresholds unchanged; candidate scope explicitly recorded"
+}

@@ -1,2 +1,2 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Frozen manifests use SHA-256 of the on-disk bytes.
+* -text

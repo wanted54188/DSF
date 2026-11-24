@@ -1,0 +1,19 @@
+{
+  "version":"full_aug_hold_audit_v1_20261117",
+  "source":"research/full_aug_parameter_pc_full_v1_20261116/results/run01",
+  "reference_quality":"REFERENCE_NOT_CONVERGED",
+  "cases":[110240101,110240102,110240104],
+  "seeds":[2026,2028],
+  "methods":["Aug","Fresh-C4","Parameter-PC","Parameter-Hold"],
+  "full_samples":"original uniform .05 times 1.05..5, arithmetic mean of absolute MSE; also exact-window trapezoid including t=1 separately",
+  "mechanism_samples":[2.0,3.0,5.0],
+  "mechanism_state_paths":["Parameter-PC","Parameter-Hold"],
+  "mechanism_head_variants":["hold","trend","fresh","hold_replace_each_of_7_channels_with_trend"],
+  "mechanism_max_algebraic_decodes":1440,
+  "mechanism_CNN":0,
+  "new_RHS_or_integrations":0,
+  "counterfactual_scope":"Same saved state, same active raw-head pair and current production decoder. Not a deployed closure or causal proof of full-trajectory benefit. Hybrid attribution is not additive.",
+  "paper_status":"NOT_RUN: independent IC, reference convergence and full-window timestep refinement require separately authorized manual expensive execution; old manual-only policy persists",
+  "do_not_access":[110240201,110240202,110240301,110240302],
+  "do_not_change":"historical code/checkpoints/results, weights, refresh schedule, physical bounds or model selection"
+}

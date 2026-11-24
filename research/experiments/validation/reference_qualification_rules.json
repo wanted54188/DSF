@@ -1,0 +1,10 @@
+{
+  "frozen_before_3072_unblinding": true,
+  "thresholds": "Unchanged from PAPER_PROTOCOL.json and the inherited original quality protocol.",
+  "filtered_convergence": "Compare1536/h0.000125 with3072/h0.000125 in space, then3072/h0.000125 with3072/h0.0000625 in time, at all81 archive times. Both pooled and worst-frame legacy-band errors must pass1%. Additional fixed mid/high diagnostics never replace the legacy bands.",
+  "native_convergence": "Full fine-space norm includes common-mode difference plus all additional fine modes; omega, E and Z gates and all81 times are retained.",
+  "fine_tail": "Both3072 candidates are the new finest-resolution reference candidates and must meet1e-4. The1536 tail is separately reported and its old REFERENCE_NOT_CONVERGED status is never overwritten. This follows PAPER_PROTOCOL gate_scope: full native norm and fine tail.",
+  "operator_and_CFL": "Every archived reference label must meet the original Source/Flux, RHS and mean gates; cumulative CFL is checked without changing its0.5 limit.",
+  "status_scope": "PASS_REFERENCE_QUALITY qualifies only the new3072 candidate hierarchy. It is not retroactive certification of the old1536 reference or a continuum theorem. Fixed saved model states are rescored against all complete variants separately.",
+  "no_adaptation": "No new grid, tolerance, filter coefficient, trained weight, time refresh rule or SGS correction is selected after seeing these outcomes. Failures and incomplete cases stay explicit."
+}

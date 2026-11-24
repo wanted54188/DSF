@@ -1,0 +1,23 @@
+{
+  "status":"PREREGISTERED_NOT_RUN",
+  "independent_case_candidate":110240105,
+  "independence":"NEW_SEED_SAME_IC_FAMILY_ONLY. No existing initial/state/results accessed. Provenance attestation of never-used seed is required before calling it blind. One new IC is not a generalization theorem.",
+  "no_selection_after_unblinding":"Freeze all four methods, seeds, weights, metrics, refresh pair and thresholds before IC105 generation. Preserve all failures. No tuning on 105.",
+  "ic_definition":{"initial_RMS":4.0,"initial_max_mode":12,"initial_peak_mode":8,"generator":"research/skew_full_validation_20261020/reference.py:initial, random default_rng(110240105), same bandlimited Fourier coefficients on every resolution"},
+  "reference_cases":[110240101,110240102,110240104,110240105],
+  "reference_variants":[{"n":1536,"dt":0.000125},{"n":3072,"dt":0.000125},{"n":3072,"dt":0.0000625}],
+  "reference_time":[0,5],
+  "reference_save_low_times":"1+.05*i, i=0..80, all fields omega/dot/source/qx/qy, same Gaussian-P33 and production adapter",
+  "reference_native_save_times":"1+.05*i, all retained native Fourier modes; compare common modes AND extra fine modes. Never pad an evolved low-resolution state as a new fine initial state.",
+  "reference_threshold_source":"research/ssc_long_horizon_v1_20261030/PROTOCOL.json",
+  "reference_gates":{"relative_time_space":0.01,"native_raw_relative_limit":0.01,"CFL":0.5,"tail_fraction":0.0001,"source_flux_identity":1e-10,"mean_relative":1e-10,"normalization_floor":1e-12},
+  "gate_scope":"Inherit original bands for legacy gate; additionally report fixed low<=16/mid17..29/high>=30 without redefining old gate. Check every archived .05 time, full native norm and fine tail. If fail keep REFERENCE_NOT_CONVERGED; no automatic next grid or changed tolerance.",
+  "new_reference_high_RHS_max":2080729,
+  "reference_budget_calculation":"IC105 3 variants: (160000+81)+(160000+81)+(320000+81)=640243; old101/102/104 reuse first variant only, 3*((160000+81)+(320000+81))=1440486. Total 2080729 actual high RHS; native diagnostics/IO additional. No wall-time speed inference from RHS count.",
+  "reference_execution":"NOT_IMPLEMENTED_NOT_RUN: resource-intensive new-reference generation/qualification still needs a dedicated reviewed driver; do not present this plan as completed DNS or a runnable end-to-end paper campaign.",
+  "full_window_dt":{"coarse_dt":0.005,"fine_dt":0.0025,"window":[1,5],"cases":[110240101,110240102,110240104],"seeds":[2026,2028],"methods":["Aug","Fresh-C4","Parameter-PC","Parameter-Hold"],"history_refresh_physical_time":"Keep original pair times 1+.025k, 1+.025k+.005. Do not refresh every five fine steps. History normalization remains .005; half-stage fractions .0,.25,.25,.5 and .5,.75,.75,1.","shared_startup":"All fine methods share TWO h/2 Aug steps t1..1.005, fresh anchors at 1 and1.005. Same t1 initial state as coarse; do not force fine onto the coarse t1.005 state.","CNN_without_replay":207198,"RHS_without_replay":153480,"CNN_hard_limit":207966,"RHS_hard_limit":153960,"replay":"At most two uncommitted-step/startup replays. Same command resumes. No added benchmark matrix or period scan."},
+  "cost_protocol":"Existing run already has actual per-loop, solver/IO wall, CNN/RHS and memory. Treat 1.35..2.90x as this run's observations, not controlled benchmark confidence intervals. Future reference and LES costs accounted separately. Any benchmark repetitions must be preregistered, never inferred from CNN counts.",
+  "reference_uncertainty":"For fixed model states rescore against BOTH space/time refined references. A method ranking must exceed observed reference-induced score drift and full-window LES dt score drift; propagate reference L2 discrepancy using |MSE(x,r)-MSE(x,r*)| <= 2||x-r*|| ||r-r*||+||r-r*||^2. No universal truth guarantee.",
+  "forbidden_cases":[110240201,110240202,110240301,110240302],
+  "publication_status":"CONDITIONAL until independent IC provenance, reference gates and full-window dt/cost tests actually completed. REFERENCE_NOT_CONVERGED remains in existing records forever. New qualification is a separate receipt, not an overwrite."
+}

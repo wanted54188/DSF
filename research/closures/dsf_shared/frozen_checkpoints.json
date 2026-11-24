@@ -1,0 +1,111 @@
+{
+  "status": "FROZEN",
+  "quality": "REFERENCE_NOT_CONVERGED",
+  "source_run": "paired01",
+  "selection": "Original best checkpoint by 102 development Source NMSE",
+  "training_code_sha256": {
+    "research\\full_c4_equivariant_training_v1_20261109\\accept.py": "a51c25135f59d59e153e6b65d92d712fd73f5adf002fa5feb09264b3ab277e5d",
+    "research\\full_c4_equivariant_training_v1_20261109\\model.py": "3a134267fd2ad0dd185cf6f772653c022f2c3f652135097751450b6e84b1c4e4",
+    "research\\full_c4_equivariant_training_v1_20261109\\PROTOCOL.json": "a22dd7d832088fc279a32576703f5294031ec67942be03397c931ffd9d6bc711",
+    "research\\full_c4_equivariant_training_v1_20261109\\study.py": "97a09d8394cdcba11f360911df037d5854d8cc542d49710c23aeeb13947a13fd",
+    "research\\full_c4_equivariant_training_v1_20261109\\train.py": "07a6d1804d5ffe02b67505089a09fbe22fd4c2d8537592c88fc6f89c1fee4fab"
+  },
+  "baseline_code_sha256": {
+    "research\\full_c4_ns_retrain_v1_20261103\\common.py": "868fe8b2bfd59ab99058b32fc7213533d18491c6b63d3d3175d282d479c30c21",
+    "research\\full_c4_ns_retrain_v1_20261103\\data.py": "2c48855a66e3911eda4eadac80d068e787a32ccb2e2b91fadb1cef19e8c58af0",
+    "research\\full_c4_ns_retrain_v1_20261103\\evaluation.py": "5c7cdeb0269976f545b37c3c34292c0eef192f256bd3230c30c8a3802c78e91b",
+    "research\\full_c4_ns_retrain_v1_20261103\\metrics.py": "f6b44dd3899b49ad38c2a261095307b7279d2d657016bf6da6dbd607aeb5a667",
+    "research\\full_c4_ns_retrain_v1_20261103\\objective.py": "4ef55524a1910e14a0506f35e7ac59fc48f901cdff3af6fc187fc86267bfa229",
+    "research\\full_c4_ns_retrain_v1_20261103\\pipeline.py": "b3957ccf2f47529d5dc9626fec0bfee5b2ba4c19b725a7949b6ba64698091639",
+    "research\\full_c4_ns_retrain_v1_20261103\\PROTOCOL.json": "55459db7d71d31361fdb3d522023a01298b41febfbea5e4ff206286a20f6d81e",
+    "research\\full_c4_ns_retrain_v1_20261103\\report.py": "d6a2c73212e4a8ebb7ef06adfc2073e9d1263b79423084aa75190bf6632d257c",
+    "research\\full_c4_ns_retrain_v1_20261103\\rollout.py": "62ecc4e6f5285b12e168e8fd77e8f47bb06623048d7390b70175f45c6c56bfbd",
+    "research\\full_c4_ns_retrain_v1_20261103\\tests\\test_benchmark.py": "c75a816bd709e177b19ff5826ed315d32d1d7b5410b4373485fe68ef7790439e",
+    "research\\full_c4_ns_retrain_v1_20261103\\training.py": "8263d73d1308a767f3a47da27355a8bd6672240cae037ef5c81bc00011053bbe",
+    "research\\full_c4_prior_integration_v1_20261103\\fc4_model.py": "c5f58a71553b3da4e83ede330ad1eba14e679cf93fe8fbbf37eea6ecf9abc96b",
+    "research\\ssc_clark4_dissipation_v1_20261102\\clark4.py": "0ceb1ddb76d0e21d7aa0eb6c05032941f72fa12dc8071f36b90e2e801b62b7bb",
+    "spnsgs\\config.py": "602352b5029d8e93dc17ed24638dbe657bebf5d14fef9d88fd051d876f270a31",
+    "spnsgs\\paper.py": "5833c1f6f9c83edf6eefb55760e306cc8085c6db7708ae09ad66b5f438846554",
+    "spnsgs\\solver.py": "d4d49a41f42240f16d567bca3748155e9bacf9dc8738fcb0b677e7b91ebf9a28"
+  },
+  "baseline_config_sha256": "56fea7155ba675957406357b21231c6f5d26ca6870e995a7b9270c748b8dfd61",
+  "cache_sha256": {
+    "110240101": "d8d78e9fe9bc8a4cc19a43725669935c72837ccdb21a5415091e74022c5fcfbe",
+    "110240102": "450b06bb941fb2453163f38c5accc1415249d499ebeab954dd31c06349eff5a9"
+  },
+  "training_report_sha256": "c0f2508a6f9931c7493392f86cf8ed7d16aa09c3b5cd83fb6d5ea7a788e02115",
+  "checkpoints": [
+    {
+      "mode": "FULL-C4",
+      "seed": 2026,
+      "epoch": 30,
+      "sha256": "a7b777cce739844fdc468324caaf9494ea312d7e44b6cc91e4a912bab471ef76",
+      "original": "research\\full_c4_ns_retrain_v1_20261103\\results\\run01\\training\\FULL-C4_2026\\best.pt",
+      "file": "research\\full_c4_ns_retrain_v1_20261103\\results\\run01\\training\\FULL-C4_2026\\best.pt",
+      "run": "research\\full_c4_ns_retrain_v1_20261103\\results\\run01\\training\\FULL-C4_2026\\RUN.json",
+      "run_sha256": "991279155517e94b684223fc02db59dcfd22d778cef744480fc892d89dd22f16",
+      "done": "research\\full_c4_ns_retrain_v1_20261103\\results\\run01\\training\\FULL-C4_2026\\DONE.json",
+      "done_sha256": "eb72df56dfa1510c22dfa9e8917a2229c82fa0f58c3b2f77ce4fc0fb8b2d9c83"
+    },
+    {
+      "mode": "FULL-C4",
+      "seed": 2028,
+      "epoch": 30,
+      "sha256": "bfd252f9d674d9997408d66f9b1d53f32ae148b4371d90726b032b7d80f18589",
+      "original": "research\\full_c4_ns_retrain_v1_20261103\\results\\run01\\training\\FULL-C4_2028\\best.pt",
+      "file": "research\\full_c4_ns_retrain_v1_20261103\\results\\run01\\training\\FULL-C4_2028\\best.pt",
+      "run": "research\\full_c4_ns_retrain_v1_20261103\\results\\run01\\training\\FULL-C4_2028\\RUN.json",
+      "run_sha256": "5d4fc1fafe3b3f58c007d6e36b258c91256ac069ae2cdff5d8cc80b29babf6bf",
+      "done": "research\\full_c4_ns_retrain_v1_20261103\\results\\run01\\training\\FULL-C4_2028\\DONE.json",
+      "done_sha256": "bd7ed51be0e16f3b4ab1711906ae59d933eea4a0f346c4b8b0b27d5ab07e31cb"
+    },
+    {
+      "mode": "FULL-C4-Augmented",
+      "seed": 2026,
+      "epoch": 100,
+      "sha256": "8dbd2c93b948dcfc5fc1eaa20738dd2e0c16551e740679679ae5e4b3fb353fca",
+      "original": "research\\full_c4_equivariant_training_v1_20261109\\results\\training\\paired01\\training\\FULL-C4-Augmented_2026\\best.pt",
+      "file": "research\\full_c4_equivariant_dynamics_v1_20261109\\frozen\\FULL-C4-Augmented_2026.pt",
+      "run": "research\\full_c4_equivariant_training_v1_20261109\\results\\training\\paired01\\training\\FULL-C4-Augmented_2026\\RUN.json",
+      "run_sha256": "843573c3b96d0d3cb1d7d5946227d11123367bbac7f42c5a1c2bb34ebf25af01",
+      "done": "research\\full_c4_equivariant_training_v1_20261109\\results\\training\\paired01\\training\\FULL-C4-Augmented_2026\\DONE.json",
+      "done_sha256": "488f5c3cd619ad7a437e122919b292ea2128b7322fae818435ad25fa37ad021e"
+    },
+    {
+      "mode": "FULL-C4-Augmented",
+      "seed": 2028,
+      "epoch": 100,
+      "sha256": "c3f5af938ca388e3d894548e78bb71be202a05b76e8c879da611cbdf544e661b",
+      "original": "research\\full_c4_equivariant_training_v1_20261109\\results\\training\\paired01\\training\\FULL-C4-Augmented_2028\\best.pt",
+      "file": "research\\full_c4_equivariant_dynamics_v1_20261109\\frozen\\FULL-C4-Augmented_2028.pt",
+      "run": "research\\full_c4_equivariant_training_v1_20261109\\results\\training\\paired01\\training\\FULL-C4-Augmented_2028\\RUN.json",
+      "run_sha256": "3e23a73486f11cc1bb7f15295859acd7ffffc63583b1515f2ef033508eaed233",
+      "done": "research\\full_c4_equivariant_training_v1_20261109\\results\\training\\paired01\\training\\FULL-C4-Augmented_2028\\DONE.json",
+      "done_sha256": "86168659b145a80c0e5e585ae582dcc234f10df343ab3597736714351d824575"
+    },
+    {
+      "mode": "FULL-C4-Equivariant",
+      "seed": 2026,
+      "epoch": 65,
+      "sha256": "6bde207ae3fc664e7429875d9f36dd201d59a69ef60d53857ab6631af8080831",
+      "original": "research\\full_c4_equivariant_training_v1_20261109\\results\\training\\paired01\\training\\FULL-C4-Equivariant_2026\\best.pt",
+      "file": "research\\full_c4_equivariant_dynamics_v1_20261109\\frozen\\FULL-C4-Equivariant_2026.pt",
+      "run": "research\\full_c4_equivariant_training_v1_20261109\\results\\training\\paired01\\training\\FULL-C4-Equivariant_2026\\RUN.json",
+      "run_sha256": "6f406ba0475c0b31e6ba0f7d348a8b7fd44a27387239a8d701268ac7acd3cbfd",
+      "done": "research\\full_c4_equivariant_training_v1_20261109\\results\\training\\paired01\\training\\FULL-C4-Equivariant_2026\\DONE.json",
+      "done_sha256": "6db1ef1f6e56539255b1a34ac04f5a191be07ab6ada0d0d834fd5fb899917b38"
+    },
+    {
+      "mode": "FULL-C4-Equivariant",
+      "seed": 2028,
+      "epoch": 60,
+      "sha256": "7f615d167d1d96fcbf49c358741c7f68b7ca63d6be04b423117357469a657ed5",
+      "original": "research\\full_c4_equivariant_training_v1_20261109\\results\\training\\paired01\\training\\FULL-C4-Equivariant_2028\\best.pt",
+      "file": "research\\full_c4_equivariant_dynamics_v1_20261109\\frozen\\FULL-C4-Equivariant_2028.pt",
+      "run": "research\\full_c4_equivariant_training_v1_20261109\\results\\training\\paired01\\training\\FULL-C4-Equivariant_2028\\RUN.json",
+      "run_sha256": "0799859aa16c76fbb1140238484075303bc5273263c4ab964270050a3f5e57a2",
+      "done": "research\\full_c4_equivariant_training_v1_20261109\\results\\training\\paired01\\training\\FULL-C4-Equivariant_2028\\DONE.json",
+      "done_sha256": "54ed6c8c46bf86990cf4e9e2fd13ee53e1af655a83d14cc4cbc4dd1e9e69d28c"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "version": "independent_NS_reference_v2_20261025",
+  "purpose": "development-only reference platform qualification; no closure evolution or training",
+  "allowed_roles": ["development"],
+  "default_seed": 110240101,
+  "reused_variants": ["space_fine", "both_fine"],
+  "new_variants": {
+    "n1024_dt": {"n": 1024, "dt": 0.00025},
+    "n1024_half_dt": {"n": 1024, "dt": 0.000125}
+  },
+  "new_resolution_rationale": "One factor-two spatial comparison against existing n512 at common dt. Sufficiency is unknown; no automatic further refinement.",
+  "reference_source": "S_eff = F R_h(w) - R_L(F w), independently verified against -P_L div(F(u*w) - (F u)*(F w))",
+  "F": "P_L spectral_transfer Gaussian; Gaussian exp(-delta^2*k^2/24)",
+  "legacy_source": "Original PoF snapshot routine after raw spectral crop, separately saved; never relabelled as S_eff",
+  "quality": {
+    "relative_time_space": 0.01,
+    "CFL": 0.5,
+    "tail_fraction": 0.0001,
+    "source_flux_identity": 1e-10,
+    "mean_relative": 1e-10,
+    "normalization_floor": 1e-12
+  },
+  "tail_scope": "Both new candidate n1024 references must pass the unchanged raw-vorticity tail limit over the window. Reused n512 tail failures remain visible as coarse-control failures; v1 status is never changed.",
+  "convergence_scope": "Global-window and maximum-frame relative RMS in low/high/all bands for omega, S_eff and reference_dot; no effect-dependent threshold selection",
+  "diagnostics": {"progress_every_steps": 100, "checkpoint_interval_s": 0.05, "wall_seconds_per_task": 1800, "minimum_free_disk_GB": 4, "enstrophy_ratio_stop": 100},
+  "execution": {"default_device": "cuda", "execute_required": true, "one_seed_per_invocation": true, "automatic_resolution_escalation": false},
+  "interpretation": "Empirical reference convergence only, not certified continuum error, DNS certification, mechanism validation, model generalization or method approval",
+  "old_campaign_is_immutable": true,
+  "preserve_old_physics_and_initial_conditions": true,
+  "distribution_coverage": "NOT_ESTABLISHED; reference PASS does not establish applicability of PoF weights"
+}

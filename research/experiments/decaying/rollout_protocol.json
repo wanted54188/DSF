@@ -1,0 +1,113 @@
+{
+  "version": "full_aug_parameter_pc_full_v1_20261116",
+  "reference_quality": "REFERENCE_NOT_CONVERGED",
+  "cases": [
+    110240101,
+    110240102,
+    110240104
+  ],
+  "roles": {
+    "110240101": "TRAIN_CONTROL",
+    "110240102": "DEVELOPMENT",
+    "110240104": "UNBLINDED_DEVELOPMENT_NOT_BLIND_TEST"
+  },
+  "seeds": [
+    2026,
+    2028
+  ],
+  "methods": [
+    "Aug",
+    "Fresh-C4",
+    "Parameter-PC",
+    "Parameter-Hold"
+  ],
+  "model": "Frozen original 101-only Aug. Predict original seven head logits, NOT weights or old flux differences.",
+  "grid": [
+    100,
+    100
+  ],
+  "start": 1.0,
+  "end": 5.0,
+  "h": 0.005,
+  "steps": 800,
+  "dtype": "float64",
+  "device": "cuda",
+  "TF32": false,
+  "operators": "Original CPU-float32 initialized physical FFT buffers converted unchanged to double, rectangular P33, zero mean, native RK4; no repeated Gaussian filtering",
+  "startup": "ONE shared native Aug RK4 step t=1..1.005 per case/seed, then two fresh branch anchors at its w0,w1. All four methods share these states and startup history. Fresh-C4 begins stage-wise symmetrization at t=1.005; the first .005 is COMMON_AUG_STARTUP, explicitly excluded from method-specific timing. Full t=1..5 state tables retain that common interval.",
+  "refresh": {
+    "period": 5,
+    "pair_phases": [
+      0,
+      1
+    ],
+    "policy": "First refresh pending; only promote a COMPLETE pair. Initial pair0,1 is shared. Each method refreshes from its OWN autonomous state.",
+    "hold": "Use last head of last COMPLETE pair",
+    "PC": "Hhat_j=(1+tau)H_second_j-tau H_first_j; tau=n+c_i-second_anchor_step, cumulative to5",
+    "stage_history": "Never change anchors within a native RK4 step. Four orientations remain separate raw coordinates."
+  },
+  "flux": "For each orientation j decode original FULL on CURRENT R_j w with predicted H_j, inverse-rotate actual qd/qb and mean. No historical flux addition, no new limiter or neural branch.",
+  "physical_policy": "STRICT_STOP for each trajectory at first nonfinite/numerical safety/physical envelope violation. Save full failed stage, masks, ratios, anchors, source and receipt. Continue OTHER independent trajectories. Never integrate past an inadmissible stage; no permissive diagnostic continuation.",
+  "envelope": "Exact closed Leith/c/SPD trace2 condition<=16 feasibility certificate plus CURRENT C4 composite signed amplitude and transfer bounds; closed envelope PASS does NOT prove original bounded heads or shared frozen CNN reachability",
+  "numerical_resolution": 1e-12,
+  "inherited_safety_K_Z_ratio": 100.0,
+  "adapter_tolerance_source": "original frozen protocol reference_adapter_relative_tolerance=5e-5; use for native buffer velocity-vs-inverse K and advection leakage only, never relax physical envelope",
+  "tail_policy": "Record high>=30 and corner(actual radius>33 within P33) separately and their changes. No invented monotone-tail or positive-transfer instability threshold. Only inherited total K/Z safety bound triggers a magnitude stop.",
+  "bands": {
+    "low": "rounded radial <=16",
+    "mid": "17..29",
+    "high": ">=30",
+    "corner": "actual radial>33 within P33; overlaps high, not part of additive partition"
+  },
+  "metrics": "State/invariants each native step; error only at EXACT saved reference times (101/102 all801, 104 archive297). Uniform paired primary statistics use 81 common .05 times, full excludes t=1; early1.2<=t<=2.2, late2.2<t<=5, endpoint5.",
+  "spectra": "E,Z and T_K,T_Z for advection, viscosity, forcing, Sd,Sb,SGS,RHS at 81 native states; use already evaluated k1 except final endpoint. Reference transfers use saved reference fields at reference states only.",
+  "fresh_bias": "At .05 sample a scheduled fresh head is already available as pending. It scores predicted vs fresh on SAME own state but never replaces active pair until second refresh.",
+  "reference_Source_accuracy": "Only separately reused frozen reference-state CSV when identity verified; history Source vs fresh is model consistency, NOT true SGS accuracy at autonomous w",
+  "storage": "Immutable endpoint+4 RHS per accepted step; lossless raw-head anchors separately; full-flux snapshots each .05 include predicted/fresh raw heads. Estimated raw plus reconstructed storage ~28GB; actual measured.",
+  "resume": "Same manual command resumes. Check protocol/code/input SHA and runtime identity. Recover complete step files before replay. Append-only durable invocation journal counts started CNN/RHS even in interrupted work. At most two uncommitted-step replays per trajectory/startup, with fixed extra-call allowance; no silent budget growth.",
+  "cost_uninterrupted_per_case_seed": {
+    "shared_startup_CNN": 12,
+    "shared_startup_RHS": 4,
+    "Aug_CNN": 3197,
+    "Fresh_C4_CNN": 12788,
+    "Parameter_PC_CNN": 1276,
+    "Parameter_Hold_CNN": 1276,
+    "RHS_per_method_after_startup": 3197,
+    "total_CNN": 18549,
+    "total_RHS": 12792
+  },
+  "hard_budget": {
+    "CNN": 113934,
+    "RHS": 78720,
+    "uninterrupted_main_CNN": 111294,
+    "uninterrupted_main_RHS": 76752,
+    "uninterrupted_dt_CNN": 720,
+    "uninterrupted_dt_RHS": 576,
+    "replay_allowance_main_CNN": 480,
+    "replay_allowance_main_RHS": 240,
+    "replay_allowance_dt_CNN": 1440,
+    "replay_allowance_dt_RHS": 1152
+  },
+  "budget_scope": "All actual checkpoint forwards, refresh, endpoint and replay counted. No extra offline CNN or benchmark forwards. Paired speedups use measured complete equal-horizon solver and total wall time, report I/O/diagnostic overhead and shared startup separately; partial failed runs are never a t5 speedup.",
+  "storage_upper_estimate_bytes": 28000000000,
+  "scientific_gate": "No numeric long-run accuracy/tail gate exists in frozen protocol. Do not invent one. Report per-pair absolute metrics and signs, all failures; classification below is predeclared descriptive, not a convergence/stability theorem.",
+  "classification": "Any Parameter-PC physical/numerical main failure => STOP current strict candidate. Local timestep physical failure => CONDITIONAL_TIME_DISCRETIZATION_NOT_ROBUST. Otherwise use fixed all-six paired full/t5 MSE signs vs Aug/Hold, K/Z/high-Z bias signs and MEASURED equal-horizon speedup vs Fresh. No new fitted tolerance; retain CONDITIONAL on reference quality even if empirical success.",
+  "forbidden": "No training, new network/loss, checkpoint selection, weights/period/threshold scan, DNS/reference generation, source kick fallback, extra limiter, Eq, MultiIC weights, or 201/202/301/302 data",
+  "manual_flag": "--execute-full-rollout",
+  "timestep_diagnostic": {
+    "steps": [
+      10,
+      200,
+      600
+    ],
+    "description": "Same own state and SAME already-refreshed coarse-step history. Compare saved one h step against two h/2 native RK4 steps. No history refresh between half steps, keep h=.005 as history time unit. Do not select a different h from result.",
+    "extra_CNN_max": 720,
+    "extra_RHS_max": 576,
+    "all_models_checked": true,
+    "whole_dt_convergence": "NOT_PROVEN_LOCAL_SENSITIVITY_ONLY"
+  },
+  "candidate": "Parameter-PC and Parameter-Hold are FULL-head temporal predictors; they do not evaluate current CNN between refreshes. Current C4/gradient/support/limiter always recomputed.",
+  "proof_boundary": "Per-orientation original decoder and mean qd structure can be proved; final mean qb signed envelope is NOT universally preserved. Runtime strict gate applies. Neither local tests nor t5 experiments prove global accuracy or asymptotic stability.",
+  "source_evaluation": "Reuse archived reference-state Aug/Fresh errors and distinguish own-state fresh consistency. No future labels in autonomous RHS.",
+  "manual_execution_authorization": "User 2026-11-16 explicitly retained MANUAL complete rollout; Codex may implement and run CPU synthetic only."
+}

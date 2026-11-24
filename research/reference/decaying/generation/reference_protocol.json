@@ -1,0 +1,67 @@
+{
+  "version": "SSC_long_horizon_v1_20261030",
+  "seeds": [
+    110240101,
+    110240102
+  ],
+  "roles": "development_only",
+  "window": [
+    1.0,
+    5.0
+  ],
+  "variants": [
+    "n1024_main",
+    "n1536_main",
+    "n1536_half"
+  ],
+  "production": "n1536_half",
+  "quality": {
+    "relative_time_space": 0.01,
+    "CFL": 0.5,
+    "tail_fraction": 0.0001,
+    "source_flux_identity": 1e-10,
+    "mean_relative": 1e-10,
+    "normalization_floor": 1e-12
+  },
+  "native_raw_relative_limit": 0.01,
+  "overlap_relative_limit": 1e-10,
+  "native_record_dt": 0.05,
+  "checkpoint_dt": 0.05,
+  "methods": [
+    "FULL",
+    "RemoveD",
+    "Clark",
+    "SSC_0.5_24",
+    "SSC_1_16",
+    "MixAll",
+    "P1"
+  ],
+  "weights": [
+    2026,
+    2028
+  ],
+  "les_dt": [
+    0.005,
+    0.0025
+  ],
+  "prediction_error_thresholds": [
+    0.05,
+    0.1,
+    0.2
+  ],
+  "source_record_dt": 0.05,
+  "field_plot_times": [
+    1.2,
+    2.0,
+    2.5,
+    5.0
+  ],
+  "safety_E_Z_ratio": 100.0,
+  "reference_resource_seconds_per_invocation": 86400.0,
+  "verdict_rule": "SSC optimized must complete all conditions and beat BOTH Clark and FULL in full-window and terminal omega for every paired condition at both dt; require margin beyond observed 2x reference differences plus dt score drift; E/Z tradeoffs separate; never claim independent validation/JCP novelty",
+  "parameter_selection": "NONE: SSC(.5,24) and SSC(1,16) frozen before long-reference access",
+  "quality_scope": "all dense low frames + sparse native full-mode differences, candidate tail/CFL, separate flux/RHS identities",
+  "fallback": "No automatic mesh/viscosity/threshold change. Failed quality blocks LES verdict; preserve failures.",
+  "forcing": "none; original decaying NS",
+  "DNS_claim": false
+}
