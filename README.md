@@ -13,7 +13,6 @@ Code for the five SGS closures in the DSF-SGS study and for the associated DNS r
 | Decaying flows, IC105, Forced-01 and ablations | [research/experiments/](research/experiments/) |
 | A priori, autonomous and mechanism diagnostics | [research/evaluation/](research/evaluation/) |
 | Grid, Fourier operators and LES integration | [numerics/](numerics/) |
-| Figures and optional LaTeX build | [paper/](paper/) |
 
 ## Render the paper figures
 
